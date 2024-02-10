@@ -1,0 +1,488 @@
+@font-face {
+    font-family: parasto;
+    src: url("../font/Parastoo-Print.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background: url('../images/purple_unicorn-background.jpg');
+    font-family: parasto;
+    font-size: 62.5%;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.volume-up-icon {
+    display: flex;
+    font-size:36px;
+    color: #fcf4ff;
+    height: 36px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.volume-off-icon {
+    display: flex;
+    font-size:36px;
+    color: #fcf4ff;
+    height: 36px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.close-icon {
+    position: relative;
+    font-size: 30px !important;
+    color: #472963;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ul > li {
+    list-style: none;
+}
+
+.card,
+.reset-btn {
+    cursor: pointer;
+}
+
+.btn {
+    border: none;
+    background: #7a6e774a;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 30px;
+    color: black;
+}
+
+p {
+    font-size: 18px;
+    color: black;
+}
+
+.score-panel {
+    font-size: 1.4em;
+    padding: 1em 0 2em;
+}
+
+.star-rating > li {
+    display: inline-block;
+    font-size: 30px;
+    color: #e0e023;
+    padding: 5px;
+}
+
+.moves-counter {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.reset-btn {
+    margin: 10px;
+    color: black;
+    padding: 10px 20px;
+}
+
+.timer-container {
+    background-color: #b572ebf2;
+    color: black;
+    padding: 6px;
+    border-radius: 0.5em;
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+}
+
+.timer-icon {
+    margin-right: 10px;
+}
+
+.win-modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(46, 61, 73);
+    background-color: rgba(46, 61, 73, 0.6);
+}
+
+.loser-modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(46, 61, 73);
+    background-color: rgba(46, 61, 73, 0.6);
+}
+
+.start-modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(46, 61, 73);
+    background-color: rgba(69, 52, 84, 1);
+}
+
+.win-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin: 5% auto;
+    border: 0.8em solid #f92780;
+    padding-right: 2em;
+    width: 70%;
+}
+
+.loser-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin: 5% auto;
+    border: 0.8em solid #f5fc02;
+    padding-right: 2em;
+    width: 70%;
+}
+
+.start-content {
+    background: url(../images/start_game_bg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin: 43% auto;
+    border: 0.8em solid #732880;
+    padding-right: 2em;
+    width: 93%;
+    height: 38%;
+}
+
+.close {
+    align-self: flex-end;
+    color: #28e;
+    font-size: 5em;
+}
+
+.close:hover,
+.close:focus {
+    color: #5cf;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-img {
+    display: inline-block;
+    margin: 1em 0 1em;
+    width: 20em;
+}
+
+p.stats {
+    font-weight: 600;
+}
+
+p.stats:last-child {
+    margin-bottom: 1em;
+}
+
+.play-again-win-btn {
+    background: #e672f5;
+    margin-bottom: 1em;
+    cursor: pointer;
+    color: black;
+}
+
+.play-again-lose-btn {
+    background: #deed0f99;
+    margin-bottom: 1em;
+    cursor: pointer;
+    color: black;
+}
+
+.next-level-btn {
+    background: #f572cd;
+    margin-bottom: 1em;
+    color: black;
+    cursor: pointer;
+}
+
+.flash-cards {
+    justify-content: space-around;
+    background-color: #f8beff;
+    border-radius: 1.5em;
+    align-items: center;
+    margin-bottom: 6em;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    display: flex;
+    height: 20em;
+    width: 35em;
+}
+
+.flash-cards,
+.card {
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.card {
+    background: #1a0d0d63;
+    border-radius: 0.5em;
+    height: 7em;
+    width: 7em;
+}
+
+img {
+    user-select: none;
+    width: 6em;
+}
+
+.flash-cards img{
+    visibility: visible;
+}
+
+.flash-cards .card.flip {
+    background: #fff;
+    cursor: default;
+    transform: rotateY(180deg);
+    transition: transform 0.3 linear;
+    pointer-events: none;
+}
+
+.flip img {
+    background: #fff;
+    visibility: visible !important;
+}
+
+.flash-cards .card.match {
+    background: #39d;
+    visibility: visible !important;
+    cursor: default;
+    animation: pulse 1s;
+}
+
+.match img {
+    background: #39d;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .flash-cards {
+        height: 30em;
+        padding: 2em;
+        width: 50em;
+    }
+    .card {
+        height: 10em;
+        width: 10em;
+    }
+    .flash-cards img{
+        width: 9em;
+    }
+    .win-content h2{
+        font-size: 4em;
+    }
+    .loser-content h2{
+        font-size: 4em;
+    }
+}
+
+@media screen and (min-width: 800px){
+    h1{
+        font-size: 6em;
+    }
+    .flash-cards {
+        height: 50em;
+        width: 76em;
+    }
+    .start-content {
+        height: 50em;
+        width: 100em;
+        margin: 14% auto;
+    }
+    .card {
+        height: 15em;
+        width: 15em;
+    }
+    .flash-cards img {
+        width: 15em;
+        height: 15em;
+    }
+    .win-content h2 {
+        font-size: 5em;
+    }
+    .loser-content h2 {
+        font-size: 5em;
+    }
+    .modal-img {
+        width: 13em;
+    }
+}
+
+.start-wrapper {
+    position: relative;
+    top: -4%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.close-wrapper {
+    position: relative;
+    top: -40%;
+    left: 50%;
+}
+  
+a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 35px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #9C27B0;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    font-weight: 600;
+}
+  
+a span {
+    position: relative;
+    z-index: 2;
+}
+  
+a:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #af7fb7;
+    transition: all .35s;
+    border-radius: 30px;
+}
+  
+a:hover {
+    color: #fff;
+}
+  
+a:hover:after {
+    width: 100%;
+}
+
+#right {
+    top: -8px;
+    left: 120%;
+}
+  
+.hover-text {
+    position: relative;
+    display: flex;
+    margin-left: -20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    z-index: 1;
+    width: 130px;
+    color: white;
+    font-size: 13px;
+    background-color: #192733;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+}
+  
+.hover-text:hover .tooltip-text {
+    visibility: visible;
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+}
+
+.hint {
+    background-color: #dc6affb8;
+    width: 70px;
+    cursor: pointer;
+    color: white;
+}

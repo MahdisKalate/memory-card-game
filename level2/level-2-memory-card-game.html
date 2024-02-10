@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./level-2-style.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Memory Flash Card Game</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.jpg">
+  </head>
+  <body>
+
+    <!--? game sound -->
+    <audio id="player" loop="loop" src="../sounds/backgroundMusic.mp3"></audio>
+    <audio id="loseSound" src="../sounds/lose-sound.mp3"></audio>
+    <audio id="winSound" src="../sounds/win-sound.mp3"></audio>
+    
+    <!--? play sound game icon -->
+    <div class="volume-up-icon" onclick="pauseSound()"><i class='fa fa-volume-up'></i></div>
+
+    <!--? pause sound game icon -->
+    <div class="volume-off-icon" onclick="playSound()"></div>
+
+    <!--? choose color of cards -->
+      <!-- <div class="hover-text">
+        <img src="./images/cards-color.png" height="36px"/>
+        <span class="tooltip-text" id="right">تغییر رنگ کارت‌ها</span>
+        <input type="color" id="colorpicker" value="#0000ff">
+      </div> -->
+
+    <div class="container">
+
+        <header>
+          <h1>بازی کارت حافظه</h1>
+        </header>
+
+        <button class="btn hint" onclick="hintFunc()">Hint</button>
+
+        <!--? score panel game -->
+        <section class="score-panel">
+
+            <ul id="star-rating" class="star-rating">
+
+                <li class="star"><i class="fa fa-star"></i></li>
+                <li class="star"><i class="fa fa-star"></i></li>
+                <li class="star"><i class="fa fa-star"></i></li>
+
+            </ul>
+
+            <!--? moves counter user -->
+            <span class="moves-counter">0</span><span class="moves-counter"> تعداد حرکات</span>
+
+            <!--? show game time -->
+            <div class="timer-container">
+
+              <span class="timer-icon"><i class="fa fa-hourglass-start"></i></span>زمان : 00:00
+
+            </div>
+
+            <!--? reset game button -->
+            <div class="reset">
+
+              <button class="btn reset-btn">بازی مجدد <i class="fa fa-repeat"></i></button>
+
+            </div>
+
+        </section>
+
+        <!--? win page -->
+        <section class="win-game">
+
+          <div id="win-modal" class="win-modal"> 
+
+            <div class="win-content">
+
+              <h2>تبریک شما برنده شدید</h2>
+
+              <img class="modal-img" src="../images/happy.png">
+
+              <button class="btn play-again-win-btn">بازی مجدد <i class="fa fa-repeat"></i></button>
+              <button class="btn next-level-btn" onclick="nextLevel()">مرحله ی بعد <i class="fa fa-arrow-right"></i></button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!--? loser page -->
+        <section class="loser-game">
+
+          <div id="loser-modal" class="loser-modal"> 
+
+            <div class="loser-content">
+
+              <h2>متاسفم شما موفق نشدید</h2>
+
+              <img class="modal-img" src="../images/sad.png">
+
+              <button class="btn play-again-lose-btn">بازی مجدد <i class="fa fa-repeat"></i></button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!--? show flashcards -->
+        <ul class="flash-cards" id="cards" onclick="selectCard(event)"></ul>
+
+    </div>
+
+    <script src="./level-2-memory-card-game.js"></script>
+
+  </body>
+
+</html>
